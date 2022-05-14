@@ -156,7 +156,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs=200, schedu
                 best_loss = epoch_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
                 if epoch % 100 == 0:
-                    torch.save(model.state_dict(), os.path.join(models_path, f"{model_name if model_name is not '' else 'model'}_e{epoch}.pth"))
+                    torch.save(model.state_dict(), os.path.join(models_path, f"{model_name if model_name != '' else 'model'}_e{epoch}.pth"))
 
             if phase == 'val':
                 val_loss_history.append(epoch_loss)
@@ -185,5 +185,5 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs=200, schedu
     df.to_csv(os.path.join(save_path, 'training_info.csv'), index=False)
     # load best model weights
     model.load_state_dict(best_model_wts)
-    torch.save(model.state_dict(), os.path.join(models_path, f"{model_name if model_name is not '' else 'model'}_final.pth"))
+    torch.save(model.state_dict(), os.path.join(models_path, f"{model_name if model_name != '' else 'model'}_final.pth"))
     return model, val_loss_history

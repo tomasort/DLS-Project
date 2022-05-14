@@ -5,3 +5,5 @@ data/test.mp4
 dataset
 *.zip
 .idea
+regular_frames
+.DS_Store
