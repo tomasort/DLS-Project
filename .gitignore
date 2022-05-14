@@ -5,3 +5,4 @@ data/test.mp4
 *.zip
 regular_frames
 .DS_Store
+.idea
