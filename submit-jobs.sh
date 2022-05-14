@@ -1,3 +1,3 @@
-sbatch train-efficientNet-double-frame.sbatch
-sbatch train-resnet-double-frame copy.sbatch
-sbatch train-resnet.sbatch
+sbatch scripts/train-efficientNet-double-frame.sbatch
+sbatch scripts/train-resnet-double-frame copy.sbatch
+sbatch scripts/train-resnet.sbatch

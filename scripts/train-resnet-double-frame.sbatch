@@ -11,4 +11,4 @@ module purge
 source /scratch/tor213/.env/bin/activate
 cd /scratch/tor213/DLS-Project/
 
-python train_model.py --dataset_mode d --dataset ./regular_frames --model resnet --batch 64
+python train_model.py --dataset_mode d --dataset ./regular_frames --model resnet --batch 32
