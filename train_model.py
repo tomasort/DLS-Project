@@ -130,4 +130,6 @@ elif args.optimizer.lower() == "adam":
 else:
     sys.exit("Optimizer not valid")
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[100, 150, 200, 300])
-train_model(model, dataloaders, criterion, optimizer, num_epochs=args.epochs, scheduler=scheduler, save_path='./results', model_name=model_name)
+
+if __name__ == '__main__':
+    train_model(model, dataloaders, criterion, optimizer, num_epochs=args.epochs, scheduler=scheduler, save_path='./results', model_name=model_name)
