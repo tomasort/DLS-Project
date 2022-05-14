@@ -31,6 +31,8 @@ parser.add_argument('--model', default='efficientnet', type=str,
                     help="what model to train")
 parser.add_argument('--model_num', default=0, type=int,
                     help='number for efficientnet')
+parser.add_argument('--batch', default=32, type=int,
+                    help='batch size')
 parser.add_argument('--dataset_mode', default="of", type=str,
                     help='dataset mode that we want to use. It could be of for optical flow or d for double frames')
 parser.add_argument('--n', default=2, type=int,
@@ -98,8 +100,8 @@ else:
     sys.exit()
 
 
-trainloader = DataLoader(test_dataset, batch_size=32, num_workers=2, shuffle=True)
-testloader = DataLoader(test_dataset, batch_size=32, num_workers=2, shuffle=True)
+trainloader = DataLoader(test_dataset, batch_size=args.batch, shuffle=True)
+testloader = DataLoader(test_dataset, batch_size=args.batch, shuffle=True)
 
 dataloaders = {'train': trainloader, 'val': testloader}
 
