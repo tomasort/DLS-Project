@@ -54,8 +54,8 @@ class OFDataset(Dataset):
 train_dataset = OFDataset(os.path.join(of_dir, "train"), os.path.join(labels_f, "train.txt"))
 test_dataset = OFDataset(os.path.join(of_dir, "test"), os.path.join(labels_f, "test.txt"))
 
-trainloader = DataLoader(test_dataset, batch_size=5, shuffle=True)
-testloader = DataLoader(test_dataset, batch_size=5, shuffle=True)
+trainloader = DataLoader(test_dataset, batch_size=32, num_workers=2, shuffle=True)
+testloader = DataLoader(test_dataset, batch_size=32, num_workers=2, shuffle=True)
 
 dataloaders = {'train': trainloader, 'val': testloader}
 

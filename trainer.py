@@ -76,7 +76,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs=200, schedu
     logging.info("Model information: ")
     total_params = 0
     for x in filter(lambda p: p.requires_grad, model.parameters()):
-        total_params += np.prod(x.data.numpy().shape)
+        total_params += np.prod(x.data.cpu().numpy().shape)
     logging.info(f"\tTotal number of params: {round(total_params/1e6, 2)}M")
     logging.info(f"\tTotal layers {len(list(filter(lambda p: p.requires_grad and len(p.data.size())>1, model.parameters())))}")
 

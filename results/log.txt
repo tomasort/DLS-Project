@@ -1,0 +1,26 @@
+2022-05-13 13:42:08,553 - INFO - Starting training on: device=cuda
+
+2022-05-13 13:42:08,553 - INFO - 
+2022-05-13 13:42:08,554 - INFO - Training efficientnet-b0
+2022-05-13 13:42:08,554 - INFO - Model information: 
+2022-05-13 13:42:08,572 - INFO - 	Total number of params: 4.01M
+2022-05-13 13:42:08,573 - INFO - 	Total layers 82
+2022-05-13 13:42:08,573 - INFO - Optimizer: Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    initial_lr: 0.001
+    lr: 0.001
+    maximize: False
+    weight_decay: 0
+)
+2022-05-13 13:42:08,573 - INFO - Scheduler: {'milestones': Counter({100: 1, 150: 1, 200: 1, 300: 1}), 'gamma': 0.1, 'base_lrs': [0.001], 'last_epoch': 0, '_step_count': 1, 'verbose': False, '_get_lr_called_within_step': False, '_last_lr': [0.001]}
+2022-05-13 13:42:09,500 - INFO - Epoch 0/349
+2022-05-13 13:42:09,500 - INFO - ----------
+2022-05-13 13:42:11,606 - INFO - train - Epoch: [0][0/900]	Loss 76.57250213623047 (avg: 76.57250213623047)	
+2022-05-13 13:42:12,044 - INFO - train - Epoch: [0][1/900]	Loss 80.13532257080078 (avg: 78.35391235351562)	
+2022-05-13 13:42:12,476 - INFO - train - Epoch: [0][2/900]	Loss 46.11138153076172 (avg: 67.60640207926433)	
+2022-05-13 13:42:12,920 - INFO - train - Epoch: [0][3/900]	Loss 49.207515716552734 (avg: 63.006680488586426)	
+2022-05-13 13:42:13,359 - INFO - train - Epoch: [0][4/900]	Loss 43.520870208740234 (avg: 59.109518432617186)	
+2022-05-13 13:42:13,816 - INFO - train - Epoch: [0][5/900]	Loss 47.656402587890625 (avg: 57.20066579182943)	
