@@ -102,8 +102,8 @@ else:
     sys.exit()
 
 
-trainloader = DataLoader(test_dataset, batch_size=args.batch, shuffle=True)
-testloader = DataLoader(test_dataset, batch_size=args.batch, shuffle=True)
+trainloader = DataLoader(test_dataset, batch_size=args.batch, num_workers=2 shuffle=True)
+testloader = DataLoader(test_dataset, batch_size=args.batch, num_workers=2, shuffle=True)
 
 dataloaders = {'train': trainloader, 'val': testloader}
 
