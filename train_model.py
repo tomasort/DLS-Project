@@ -136,4 +136,4 @@ else:
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[100, 150, 200, 300])
 
 if __name__ == '__main__':
-    train_model(model, dataloaders, criterion, optimizer, num_epochs=args.epochs, scheduler=scheduler, save_path='./results', model_name=model_name)
+    train_model(model, dataloaders, criterion, optimizer, num_epochs=args.epochs, scheduler=scheduler, save_path=args.save_path, model_name=model_name)
