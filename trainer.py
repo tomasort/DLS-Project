@@ -155,7 +155,7 @@ def train_model(model, dataloaders, criterion, optimizer, num_epochs=200, schedu
                 best_loss_updated_on = epoch
                 best_loss = epoch_loss
                 best_model_wts = copy.deepcopy(model.state_dict())
-                if epoch % 100 == 0:
+                if epoch % 10 == 0:
                     torch.save(model.state_dict(), os.path.join(models_path, f"{model_name if model_name != '' else 'model'}_e{epoch}.pth"))
 
             if phase == 'val':

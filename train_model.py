@@ -133,7 +133,7 @@ elif args.optimizer.lower() == "adam":
     optimizer = optim.Adam(params_to_update, lr=args.lr)
 else:
     sys.exit("Optimizer not valid")
-scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[100, 150, 200, 300])
+scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, milestones=[50, 100, 200, 300])
 
 if __name__ == '__main__':
     train_model(model, dataloaders, criterion, optimizer, num_epochs=args.epochs, scheduler=scheduler, save_path=args.save_path, model_name=model_name)
