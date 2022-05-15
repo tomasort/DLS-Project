@@ -10,3 +10,4 @@ regular_frames
 .idea
 results_sgd
 results_adam
+enet_double

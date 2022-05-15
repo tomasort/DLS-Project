@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=project-efficientnet-two-frames-per-sample
+#SBATCH --job-name=project-efficientnet-two-frames-per-sample-2
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=4
 #SBATCH --output=%x.out
 #SBATCH --mem=32GB
-#SBATCH --time=6:00:00
+#SBATCH --time=20:00:00
 #SBATCH --gres=gpu
 
 module purge
 source /scratch/tor213/.env/bin/activate
 cd /scratch/tor213/DLS-Project/
 
-python train_model.py --dataset_mode d --dataset ./regular_frames --model efficientnet --batch 32 --save_path ./enet_double --epoch 100 --lr 0.01
+python train_model.py --dataset_mode d --dataset ./regular_frames --model efficientnet --batch 32 --save_path ./enet_double_2 --epoch 100 --lr 0.01 
