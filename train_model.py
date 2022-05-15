@@ -37,6 +37,8 @@ parser.add_argument('--dataset_mode', default="of", type=str,
                     help='dataset mode that we want to use. It could be of for optical flow or d for double frames')
 parser.add_argument('--n', default=2, type=int,
                     help='number of frames to use if the dataset is composed of regular frames for each traning sample')
+parser.add_argument('--save_path', default="./results", type=str,
+                    help='path to save the results of the network')
 
 args = parser.parse_args()
 
