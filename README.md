@@ -16,11 +16,30 @@ imageio==2.8.0
 opencv-python
 ```
 
+## Data
+
+We got the data from the [speed challenge](https://github.com/commaai/speedchallenge) which was a competition held by comma.ai in 2017. This data can be found the comma.ai repo. The format is supposed to mp4 files.
+One for testing and the other for training. To be able to run the scripts in this repo, you must first download the video files from the comma.ai repo. 
+
+In the image below, we can see a section of the training video.
+
+![](images/training_sample.gif)
+
+### Optical Flow
+We used optical flow to capture the movement between frames. Optical Flow can be defined as the distribution of apparent velocities of movement of brightness pattern in an image. We used OpenCV to calculate the optical flow.
+The algorithm that we employed is the Farneback method. This method computes the Dense optical flow. That means it computes the optical flow from each pixel point in the current image to each pixel point in the next image.
+
+After computing the optical flow, the results look like this:
+
+![](images/ezgif.com-gif-maker.gif)
 ## Project Structure
 
 The structure of our project is very simple. We have a directory called `data` containing the data provided to us from the comma.ai competition. This includes the label files, as well as the videos for training and the video for testing. Unfortunately, we were unable to add the video files to github because of the size of the files, and github's size restrictions. 
 
-The `efficient_pytorch` directory contains the implementation of efficientnet. 
+The `efficient_pytorch` directory contains the implementation of efficientNet. For this project, we decided to use the B0 version of the network. 
+The architecture of this model is shown in the image blow. 
+
+![](images/Picture1.png)
 
 The script `video-to-frame.py` was used to process that video files and produce the dataset that we used to train our models. 
 
@@ -91,15 +110,26 @@ We can choose to compute the optical flow or just the regular frames by setting 
 ## How To Run: Inference
 To be able to run inference, you need a trained model, and the video file for which you want to get the estimate velocities. The first step would be to use `run.py` to generate the frames and the optical flow images. Once we have the data, the instruction to do inference, are pretty straight forward, simply run the jupyter notebook called `inference.ipynb` and that's it. 
 
-## Data
-
-We got the data from the [speed challenge](https://github.com/commaai/speedchallenge) which was a competition held by comma.ai in 2017. This data can be found the comma.ai repo. The format is supposed to mmp4 files.
-One for testing and the other for training. 
-
-### Optical Flow
-We used optical flow to capture the movement between frames. Optical Flow can be defined as the distribution of apparent velocities of movement of brightness pattern in an image. We used OpenCV to calculate the optical flow. 
-The algorithm that we employed is the Farneback method. This method computes the Dense optical flow. That means it computes the optical flow from each pixel point in the current image to each pixel point in the next image.
-
 
 # Results
-this should contain evaluation results. 
+
+The results of this project are very intriguing. 
+
+### ResNet
+We first trained Resnet50 using adam to see how it would handle this task. We trained it for 50 epochs, and we can see that although the training loss goes down smoothly, the validation loss is all over the place.
+![](images/Picture3.png)
+
+### EfficientNet
+Then we trained EfficientNet using **SGD** optimizer. We trained it for 280 epochs. As we can see the training loss reduces well overtime but also there were huge spikes with the validation loss, implying that it wasn't generalising well enough.
+The total training time took approximately 13 hours and 46 minutes
+![](images/Picture4.png)
+
+Finally, we used EfficientNet B0 with the Adam optimizer. The training was very stable gradually improving over 220 epochs and the validation loss was also stable in line with the training loss.
+The total training time took approximately 17 hours and 23 minutes.
+![](images/Picture5.png)
+
+## Demo
+
+To create the demo, we used the `visualise.py`. Here, we include the visualization for the EfficientNet model trained with Adam because ot was the best performing one. 
+
+![](images/video_adam.gif)
