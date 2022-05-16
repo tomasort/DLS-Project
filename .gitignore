@@ -8,6 +8,3 @@ dataset
 regular_frames
 .DS_Store
 .idea
-results_sgd
-results_adam
-enet_double

@@ -40,13 +40,13 @@ The structure of our project is very simple. We have a directory called `data` c
 The `efficient_pytorch` directory contains the implementation of efficientNet. For this project, we decided to use the B0 version of the network. 
 The architecture of this model is shown in the image blow. 
 
-![](images/Picture1.png)
-
 The script `video-to-frame.py` was used to process that video files and produce the dataset that we used to train our models. 
 
 `train_model.py` and `trainer.py` are maybe the most important script. They were used to train the models. More information about how to run all these scripts will be provided below. 
 
 The `images` directory, contains images that are being used in this readme file. 
+
+The `scripts` directory contains the scripts that were used to train our models in HPC
 
 ## How To Run: Training Script
 
@@ -123,16 +123,17 @@ We first trained Resnet50 using adam to see how it would handle this task. We tr
 ![](images/Picture3.png)
 
 ### EfficientNet
-Then we trained EfficientNet using **SGD** optimizer. We trained it for 280 epochs. As we can see the training loss reduces well overtime but also there were huge spikes with the validation loss, implying that it wasn't generalising well enough.
+
+* **Using SGD:** We trained EfficientNet using **SGD** optimizer. We trained it for 280 epochs. As we can see the training loss reduces well overtime but also there were huge spikes with the validation loss, implying that it wasn't generalising well enough.
 The total training time took approximately 13 hours and 46 minutes
 ![](images/Picture4.png)
 
-Finally, we used EfficientNet B0 with the Adam optimizer. The training was very stable gradually improving over 220 epochs and the validation loss was also stable in line with the training loss.
+* **Using Adam**: Finally, we used EfficientNet B0 with the Adam optimizer. The training was very stable gradually improving over 220 epochs and the validation loss was also stable in line with the training loss.
 The total training time took approximately 17 hours and 23 minutes.
 ![](images/Picture5.png)
 
 ## Demo
 
-To create the demo, we used the `visualise.py`. Here, we include the visualization for the EfficientNet model trained with Adam because ot was the best performing one. 
+To create the demo, we used the `visualize.py`. Here, we include the visualization for the EfficientNet model trained with Adam because ot was the best performing one. 
 
 ![](images/video_adam.gif)
