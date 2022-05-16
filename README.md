@@ -60,6 +60,9 @@ optional arguments:
                         path to save the results of the network
 ```
 
+There are two datasets implementations in this script. The first one, creates a dataset where every frame is paired up with the previous frame and combined into a single sample. This approach did not give good results, so we abandoned it early on in the process. The second one, creates a dataset with the optical flow for each image and pairs it with its label. 
+
+
 ## How To Run: Video To Frame
 
 To run the script to transform a video in mp4. You also need the program `ffmpeg` so that `torchvision` can break the video into frames. In this script we use OpenCV to calculate the optical flow of each pair of frames in the video. 
@@ -86,7 +89,7 @@ optional arguments:
 We can choose to compute the optical flow or just the regular frames by setting the flag --no-opt-flow. 
 
 ## How To Run: Inference
-To be able to run inference, you need a trained model, and the video file for which you want to get the estimate velocities. The instruction to do inference, are pretty straight forward, simply run the jupyter notebook called `inference.ipynb` and that's it. 
+To be able to run inference, you need a trained model, and the video file for which you want to get the estimate velocities. The first step would be to use `run.py` to generate the frames and the optical flow images. Once we have the data, the instruction to do inference, are pretty straight forward, simply run the jupyter notebook called `inference.ipynb` and that's it. 
 
 ## Data
 
@@ -96,9 +99,6 @@ One for testing and the other for training.
 ### Optical Flow
 We used optical flow to capture the movement between frames. Optical Flow can be defined as the distribution of apparent velocities of movement of brightness pattern in an image. We used OpenCV to calculate the optical flow. 
 The algorithm that we employed is the Farneback method. This method computes the Dense optical flow. That means it computes the optical flow from each pixel point in the current image to each pixel point in the next image.
-
-## Model
-
 
 
 # Results
