@@ -42,6 +42,8 @@ The architecture of this model is shown in the image blow.
 
 The script `video-to-frame.py` was used to process that video files and produce the dataset that we used to train our models. 
 
+The `frames_to_opticalflow` directory contains `run.py` along with `raft.py` and `utils` that are used to convert the frames into optical flow images.
+
 `train_model.py` and `trainer.py` are maybe the most important script. They were used to train the models. More information about how to run all these scripts will be provided below. 
 
 The `images` directory, contains images that are being used in this readme file. 
@@ -49,6 +51,8 @@ The `images` directory, contains images that are being used in this readme file.
 The `scripts` directory contains the scripts that were used to train our models in HPC.
 
 Finally, we decided to include the best results from our experiments. The files that we are including, are the csv file containing information about each epoch, the logs, containing information about the model, as well as info on each iteration. In the `models` subdirectory, we can find the pretrained model that we got after training it with the approach explained in our presentation. These results can be found in `results_adam` and in `results_sgd`
+
+In order to visualize the training results, we run the `visualize.py` which captures the first 120 frames of the test video and add the prediction, label and diff onto the video and convert it into a gif to view.
 
 ## How To Run: Training Script
 
@@ -113,7 +117,7 @@ optional arguments:
 We can choose to compute the optical flow or just the regular frames by setting the flag --no-opt-flow. 
 
 ## How To Run: Inference
-To be able to run inference, you need a trained model, and the video file for which you want to get the estimate velocities. The first step would be to use `run.py` to generate the frames and the optical flow images. Once we have the data, the instruction to do inference, are pretty straight forward, simply run the jupyter notebook called `inference.ipynb` and that's it. 
+To be able to run inference, you need a trained model, and the video file for which you want to get the estimate velocities. The first step would be to use `run.py` in `frames_to_opticalflow` to generate the frames and the optical flow images. Once we have the data, the instruction to do inference, are pretty straight forward, simply run the jupyter notebook called `inference.ipynb` and that's it. 
 
 
 # Results
@@ -136,6 +140,6 @@ The total training time took approximately 17 hours and 23 minutes.
 
 ## Demo
 
-To create the demo, we used the `visualize.py`. Here, we include the visualization for the EfficientNet model trained with Adam because ot was the best performing one. 
+To create the demo, we used the `visualize.py`. Here, we include the visualization for the EfficientNet model trained with Adam because it was the best performing one. 
 
 ![](images/video_adam.gif)

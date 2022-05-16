@@ -52,8 +52,7 @@ while (True):
     # Display the resulting frame
     cv2.imshow('video', frame)
 
-    if i<120:
-        image.append(frame)
+    image.append(frame)
     if i==121:
         break
 
