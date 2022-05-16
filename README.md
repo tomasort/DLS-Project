@@ -46,7 +46,9 @@ The script `video-to-frame.py` was used to process that video files and produce 
 
 The `images` directory, contains images that are being used in this readme file. 
 
-The `scripts` directory contains the scripts that were used to train our models in HPC
+The `scripts` directory contains the scripts that were used to train our models in HPC.
+
+Finally, we decided to include the best results from our experiments. The files that we are including, are the csv file containing information about each epoch, the logs, containing information about the model, as well as info on each iteration. In the `models` subdirectory, we can find the pretrained model that we got after training it with the approach explained in our presentation. These results can be found in `results_adam` and in `results_sgd`
 
 ## How To Run: Training Script
 
