@@ -32,6 +32,7 @@ The algorithm that we employed is the Farneback method. This method computes the
 After computing the optical flow, the results look like this:
 
 ![](images/ezgif.com-gif-maker.gif)
+
 ## Project Structure
 
 The structure of our project is very simple. We have a directory called `data` containing the data provided to us from the comma.ai competition. This includes the label files, as well as the videos for training and the video for testing. Unfortunately, we were unable to add the video files to github because of the size of the files, and github's size restrictions. 
@@ -44,6 +45,8 @@ The architecture of this model is shown in the image blow.
 The script `video-to-frame.py` was used to process that video files and produce the dataset that we used to train our models. 
 
 `train_model.py` and `trainer.py` are maybe the most important script. They were used to train the models. More information about how to run all these scripts will be provided below. 
+
+The `images` directory, contains images that are being used in this readme file. 
 
 ## How To Run: Training Script
 
